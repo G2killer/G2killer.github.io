@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-01-16T06:21:20.138Z</updated>
+  <updated>2021-01-16T06:24:16.044Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -21,17 +21,14 @@
     <link href="http://example.com/2021/01/16/Fibonacci%E6%95%B0%E5%88%97/"/>
     <id>http://example.com/2021/01/16/Fibonacci%E6%95%B0%E5%88%97/</id>
     <published>2021-01-16T05:48:51.000Z</published>
-    <updated>2021-01-16T06:21:20.138Z</updated>
+    <updated>2021-01-16T06:24:16.044Z</updated>
     
-    <content type="html"><![CDATA[<p>#题目要求<br>问题描述<br>Fibonacci数列的递推公式为：Fn=Fn-1+Fn-2，其中F1=F2=1。</p><p>当n比较大时，Fn也非常大，现在我们想知道，Fn除以10007的余数是多少。</p><p>输入格式<br>输入包含一个整数n。<br>输出格式<br>输出一行，包含一个整数，表示Fn除以10007的余数。<br>说明：在本题中，答案是要求Fn除以10007的余数，因此我们只要能算出这个余数即可，而不需要先计算出Fn的准确值，再将计算的结果除以10007取余数，直接计算余数往往比先算出原数再取余简单。</p><p>样例输入<br>10<br>样例输出<br>55<br>样例输入<br>22<br>样例输出<br>7704<br>数据规模与约定<br>1 &lt;= n &lt;= 1,000,000。<br>#代码</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="title">feibo</span><span class="params">(<span class="keyword">long</span> i)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> f1=<span class="number">1</span>,f2=<span class="number">1</span>,f3=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(i==<span class="number">1</span>||i==<span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> m=<span class="number">3</span>;m&lt;=i;m++)</span><br><span class="line">    &#123;</span><br><span class="line">        f1=f2;</span><br><span class="line">        f2=f3;</span><br><span class="line">        f3=(f2+f1)%<span class="number">10007</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> f3;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> a;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;a;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;feibo(a);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>#思想<br>这个题如果用递归的话是会超内存的，所以我选择使用循环，利用取余数的性质（和的余数等于每个单项余数之和）。</p>]]></content>
+    <content type="html"><![CDATA[<p>#题目要求<br>问题描述<br>Fibonacci数列的递推公式为：Fn=Fn-1+Fn-2，其中F1=F2=1。</p><p>当n比较大时，Fn也非常大，现在我们想知道，Fn除以10007的余数是多少。</p><p>输入格式<br>输入包含一个整数n。<br>输出格式<br>输出一行，包含一个整数，表示Fn除以10007的余数。<br>说明：在本题中，答案是要求Fn除以10007的余数，因此我们只要能算出这个余数即可，而不需要先计算出Fn的准确值，再将计算的结果除以10007取余数，直接计算余数往往比先算出原数再取余简单。</p><a id="more"></a>    <p>样例输入<br>10<br>样例输出<br>55<br>样例输入<br>22<br>样例输出<br>7704<br>数据规模与约定<br>1 &lt;= n &lt;= 1,000,000。<br>#代码</p><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="title">feibo</span><span class="params">(<span class="keyword">long</span> i)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> f1=<span class="number">1</span>,f2=<span class="number">1</span>,f3=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(i==<span class="number">1</span>||i==<span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> m=<span class="number">3</span>;m&lt;=i;m++)</span><br><span class="line">    &#123;</span><br><span class="line">        f1=f2;</span><br><span class="line">        f2=f3;</span><br><span class="line">        f3=(f2+f1)%<span class="number">10007</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> f3;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> a;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;a;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;feibo(a);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>#思想<br>这个题如果用递归的话是会超内存的，所以我选择使用循环，利用取余数的性质（和的余数等于每个单项余数之和）。</p>]]></content>
     
     
-      
-      
     <summary type="html">&lt;p&gt;#题目要求&lt;br&gt;问题描述&lt;br&gt;Fibonacci数列的递推公式为：Fn=Fn-1+Fn-2，其中F1=F2=1。&lt;/p&gt;
 &lt;p&gt;当n比较大时，Fn也非常大，现在我们想知道，Fn除以10007的余数是多少。&lt;/p&gt;
-&lt;p&gt;输入格式&lt;br&gt;输入包含一个整数n。&lt;br&gt;输出格</summary>
-      
+&lt;p&gt;输入格式&lt;br&gt;输入包含一个整数n。&lt;br&gt;输出格式&lt;br&gt;输出一行，包含一个整数，表示Fn除以10007的余数。&lt;br&gt;说明：在本题中，答案是要求Fn除以10007的余数，因此我们只要能算出这个余数即可，而不需要先计算出Fn的准确值，再将计算的结果除以10007取余数，直接计算余数往往比先算出原数再取余简单。&lt;/p&gt;</summary>
     
     
     
@@ -49,16 +46,12 @@
     <link href="http://example.com/2021/01/12/hello-world/"/>
     <id>http://example.com/2021/01/12/hello-world/</id>
     <published>2021-01-12T08:02:02.169Z</published>
-    <updated>2021-01-13T02:15:28.039Z</updated>
+    <updated>2021-01-16T06:24:34.397Z</updated>
     
-    <content type="html"><![CDATA[<p>欢迎来到<a href="https://g2killer.github.io/">我的博客</a>! 感谢阅读我的第一篇博客。</p><h2 id="学习历程"><a href="#学习历程" class="headerlink" title="学习历程"></a>学习历程</h2><p>类似于突发奇想吧，我之前也对博客一无所知，但是兴致一起我就想搭建一个自己的博客了，由于我很穷，反正舍不得花钱，我就查到了通过GitHub可以搭建一个免费的博客。<br>我就开始学习，看了好多教程，愚钝的我也看不懂，但是我照猫画虎搞了好几遍终于搭建完毕了。</p><h2 id="本篇文章没有干货，谢谢阅读。"><a href="#本篇文章没有干货，谢谢阅读。" class="headerlink" title="本篇文章没有干货，谢谢阅读。"></a>本篇文章没有干货，谢谢阅读。</h2>]]></content>
+    <content type="html"><![CDATA[<p>欢迎来到<a href="https://g2killer.github.io/">我的博客</a>! 感谢阅读我的第一篇博客。</p><a id="more"></a>    <h2 id="学习历程"><a href="#学习历程" class="headerlink" title="学习历程"></a>学习历程</h2><p>类似于突发奇想吧，我之前也对博客一无所知，但是兴致一起我就想搭建一个自己的博客了，由于我很穷，反正舍不得花钱，我就查到了通过GitHub可以搭建一个免费的博客。<br>我就开始学习，看了好多教程，愚钝的我也看不懂，但是我照猫画虎搞了好几遍终于搭建完毕了。</p><h2 id="本篇文章没有干货，谢谢阅读。"><a href="#本篇文章没有干货，谢谢阅读。" class="headerlink" title="本篇文章没有干货，谢谢阅读。"></a>本篇文章没有干货，谢谢阅读。</h2>]]></content>
     
     
-      
-      
-    <summary type="html">&lt;p&gt;欢迎来到&lt;a href=&quot;https://g2killer.github.io/&quot;&gt;我的博客&lt;/a&gt;! 感谢阅读我的第一篇博客。&lt;/p&gt;
-&lt;h2 id=&quot;学习历程&quot;&gt;&lt;a href=&quot;#学习历程&quot; class=&quot;headerlink&quot; title=&quot;学习历程&quot;&gt;&lt;/a&gt;学习</summary>
-      
+    <summary type="html">&lt;p&gt;欢迎来到&lt;a href=&quot;https://g2killer.github.io/&quot;&gt;我的博客&lt;/a&gt;! 感谢阅读我的第一篇博客。&lt;/p&gt;</summary>
     
     
     
