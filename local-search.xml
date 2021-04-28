@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>小小感想</title>
+    <link href="/2021/01/16/tags/%E9%9A%8F%E7%AC%94/thoughts/"/>
+    <url>/2021/01/16/tags/%E9%9A%8F%E7%AC%94/thoughts/</url>
+    
+    <content type="html"><![CDATA[<h1 id="小小感想"><a href="#小小感想" class="headerlink" title="小小感想"></a>小小感想</h1><h2 id="有时候感觉两个人的关系，好像只要不联系就会变淡，有时候就一天忘了联系以后也很难再联系了。"><a href="#有时候感觉两个人的关系，好像只要不联系就会变淡，有时候就一天忘了联系以后也很难再联系了。" class="headerlink" title="有时候感觉两个人的关系，好像只要不联系就会变淡，有时候就一天忘了联系以后也很难再联系了。"></a>有时候感觉两个人的关系，好像只要不联系就会变淡，有时候就一天忘了联系以后也很难再联系了。</h2>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Fibonacci数列</title>
+    <link href="/2021/01/16/Fibonacci%E6%95%B0%E5%88%97/"/>
+    <url>/2021/01/16/Fibonacci%E6%95%B0%E5%88%97/</url>
+    
+    <content type="html"><![CDATA[<h2 id="题目要求"><a href="#题目要求" class="headerlink" title="题目要求"></a>题目要求</h2><p>问题描述<a href="http://lx.lanqiao.cn/problem.page?gpid=T4">题目链接</a>!<br>Fibonacci数列的递推公式为：Fn=Fn-1+Fn-2，其中F1=F2=1。</p><p>当n比较大时，Fn也非常大，现在我们想知道，Fn除以10007的余数是多少。</p><p>输入格式<br>输入包含一个整数n。<br>输出格式<br>输出一行，包含一个整数，表示Fn除以10007的余数。<br>说明：在本题中，答案是要求Fn除以10007的余数，因此我们只要能算出这个余数即可，而不需要先计算出Fn的准确值，再将计算的结果除以10007取余数，直接计算余数往往比先算出原数再取余简单。</p><a id="more"></a>    <p>样例输入<br>10<br>样例输出<br>55<br>样例输入<br>22<br>样例输出<br>7704<br>数据规模与约定<br>1 &lt;= n &lt;= 1,000,000。</p><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="title">feibo</span><span class="params">(<span class="keyword">long</span> i)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> f1=<span class="number">1</span>,f2=<span class="number">1</span>,f3=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span>(i==<span class="number">1</span>||i==<span class="number">2</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> m=<span class="number">3</span>;m&lt;=i;m++)</span><br><span class="line">    &#123;</span><br><span class="line">        f1=f2;</span><br><span class="line">        f2=f3;</span><br><span class="line">        f3=(f2+f1)%<span class="number">10007</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> f3;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">long</span> a;</span><br><span class="line">    <span class="built_in">cin</span>&gt;&gt;a;</span><br><span class="line">    <span class="built_in">cout</span>&lt;&lt;feibo(a);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="思想"><a href="#思想" class="headerlink" title="思想"></a>思想</h2><p>这个题如果用递归的话是会超内存的，所以我选择使用循环，利用取余数的性质（和的余数等于每个单项余数之和）。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>蓝桥杯</tag>
+      
+      <tag>c++</tag>
+      
+      <tag>编程</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>我的第一篇博客</title>
+    <link href="/2021/01/12/hello-world/"/>
+    <url>/2021/01/12/hello-world/</url>
+    
+    <content type="html"><![CDATA[<p>欢迎来到<a href="https://g2killer.github.io/">我的博客</a>! 感谢阅读我的第一篇博客。</p><a id="more"></a>    <h2 id="学习历程"><a href="#学习历程" class="headerlink" title="学习历程"></a>学习历程</h2><p>类似于突发奇想吧，我之前也对博客一无所知，但是兴致一起我就想搭建一个自己的博客了，由于我很穷，反正舍不得花钱，我就查到了通过GitHub可以搭建一个免费的博客。<br>我就开始学习，看了好多教程，愚钝的我也看不懂，但是我照猫画虎搞了好几遍终于搭建完毕了。</p><h2 id="本篇文章没有干货，谢谢阅读。"><a href="#本篇文章没有干货，谢谢阅读。" class="headerlink" title="本篇文章没有干货，谢谢阅读。"></a>本篇文章没有干货，谢谢阅读。</h2>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  
+</search>
